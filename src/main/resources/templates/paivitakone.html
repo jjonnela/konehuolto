@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Muokkaa koneen tietoja</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href = "@{/css/customstyle.css}" rel="stylesheet">
+
+</head>
+
+<body>
+<div th:insert="navigaatio :: navbar">  </div>
+	<div class="container"></div>
+	<h1>Muokkaa koneen tietoja</h1>
+	<div>
+		<form th:object="${kone}" th:action="@{/tallennakone}" action="#" method="post">
+		
+			<div class="form-group">
+			<label for="valmistenumero">Valmistenumero</label>
+			<input type="text" class="form-control" id="valmistenumero" th:field="*{valmistenumero}" />
+			</div>
+			
+			<div class="form-group">
+			<label for="merkki">Merkki</label>
+			<input type="text" class="form-control" id="merkki" th:field="*{merkki}" />
+			</div>
+			
+			<div class="form-group">
+			<label for="malli">Malli</label>
+			<input type="text" class="form-control" id="malli" th:field="*{malli}" />
+			</div>
+			
+			<div class="form-group">
+			<label for="vuosi">Vuosi</label>
+			<input type="text" class="form-control" id="vuosi" th:field="*{vuosi}" />
+			</div>
+			
+			<div class="form-group">
+			<label for="tyyppi">Tyyppi</label>
+			<input type="text" class="form-control" id="tyyppi" th:field="*{tyyppi}" />
+			</div>
+					
+			<input type="submit" class="btn btn-primary" value="Tallenna" />
+			
+		</form>
+	</div>
+
+</body>
+
+
+</html>

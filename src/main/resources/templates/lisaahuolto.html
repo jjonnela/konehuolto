@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lisää huolto</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/customstyle.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="navigaatio :: navbar"></div>
+	<h1>Lisää huolto</h1>
+	<div>
+		<form th:object="${huolto}" th:action="@{tallennahuolto}" action="#"
+			method="post">
+
+			<div class="form-group">
+				<label for="pvm">Päivämäärä</label> <input type="text"
+					class="form-control" id="pvm" th:field="*{pvm}" />
+			</div>
+
+			<div class="form-group">
+				<label for="kuvaus">Kuvaus</label> <input type="text"
+					class="form-control" id="kuvaus" th:field="*{kuvaus}" />
+			</div>
+
+			<input  type="text" th:each="kone: ${kone}" th:placeholder="${kone.valmistenumero}" th:value="${kone.valmistenumero}" th:field="*{kone}" />
+
+
+			<input type="submit" class="btn btn-primary" value="Tallenna" />
+		</form>
+	</div>
+</body>
+</html>

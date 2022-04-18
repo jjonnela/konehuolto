@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Kirjaudu sisään</title>
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href = "@{/css/customstyle.css}" rel="stylesheet">
+
+</head>
+<body>
+
+    <div style="margin-top: 30px;" class="container-fluid">
+        <div class="form-group"  th:if="${param.error}">
+        	Virheellinen käyttäjätunnus, tai salasana.
+        </div>
+        <div class="form-group" th:if="${param.logout}">
+        	Kirjauduttu ulos.
+        </div>
+        
+        <form th:action="@{/kirjaudu}" method="post">
+        	<div class="form-group">
+        		<label class="form-check-label"> Käyttäjätunnus: <input class="form-control" type="text" name="username" /> </label>
+        	</div>
+        	
+        	<div class="form-group">
+        		<label class="form-check-label"> Salasana: <input class="form-control" type="password" name="password" /> </label>
+        	</div>
+        	<div class="form-group">
+        		<input type="submit" value="Kirjaudu sisään" class="btn btn-primary" />
+        	</div>
+        </form>
+    </div>    
+
+</body>
+</html>

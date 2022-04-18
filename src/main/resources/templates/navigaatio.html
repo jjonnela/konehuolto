@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Navigaatio</title>
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<nav th:fragment="navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a class="nav-link" th:href="@{/koneet}">Koneet</a></li>
+
+            <li><a class="nav-link" th:href="@{/lisaakone}">Lisää kone</a></li>
+
+            <li><a class="nav-link" th:href="@{/muokkaakone}">Muokkaa koneita</a></li>
+            
+            <li>
+            	<form th:action="@{/logout}" method="post">
+            		<input type="submit" value="Kirjaudu ulos" class="btn btn-dark" />
+            	</form>
+			</li>   
+        </ul>
+    </div>    
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Muokkaa koneita</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/customstyle.css}" rel="stylesheet">
+</head>
+<body>
+	<div th:insert="navigaatio :: navbar"></div>
+	<h1>Muokkaa koneita</h1>
+	<div class="container">
+		<div class="row">
+			<table class="table table-responsive table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Valmistenumero</th>
+						<th>Merkki</th>
+						<th>Malli</th>
+						<th>Vuosi</th>
+						<th>Tyyppi</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="kone : ${koneet}">
+						<td th:text="${kone.valmistenumero}"></td>
+						<td th:text="${kone.merkki}"></td>
+						<td th:text="${kone.malli}"></td>
+						<td th:text="${kone.vuosi}"></td>
+						<td th:text="${kone.tyyppi}"></td>
+						<td><a class="btn btn-info"
+							th:href="@{/muokkaa/{valmistenumero}(valmistenumero=${kone.valmistenumero})}">Muokkaa</a>
+							<a class="btn btn-danger"
+							th:href="@{/poista/{valmistenumero}(valmistenumero=${kone.valmistenumero})}">Poista</a>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
