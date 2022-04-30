@@ -10,7 +10,7 @@
 	<div th:insert="navigaatio :: navbar"></div>
 	<h1>Lisää huolto</h1>
 	<div>
-		<form th:object="${huolto}" th:action="@{tallennahuolto}" action="#"
+		<form th:object = "${huolto}" th:action="@{tallennahuolto}" action="#"
 			method="post">
 
 			<div class="form-group">
@@ -23,8 +23,9 @@
 					class="form-control" id="kuvaus" th:field="*{kuvaus}" />
 			</div>
 
-			<input  type="text" th:each="kone: ${kone}" th:placeholder="${kone.valmistenumero}" th:value="${kone.valmistenumero}" th:field="*{kone}" />
-
+			<div>
+			<input  type="hidden" th:value="${kone.valmistenumero}" th:field="*{kone.valmistenumero}" />
+			</div>
 
 			<input type="submit" class="btn btn-primary" value="Tallenna" />
 		</form>
